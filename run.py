@@ -1,9 +1,5 @@
-# Write your code to expect a terminal of 80 characters wide and 24 rows high
-
 import gspread
 from google.oauth2.service_account import Credentials
-from pprint import pprint
-
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -27,7 +23,7 @@ def get_sales_data():
         print("Example: 10,20,10,30,10,20\n")
 
         data_str = input("Enter your data here: ")
-        
+    
         sales_data = data_str.split(",")
 
         if validate_data(sales_data):
@@ -96,11 +92,12 @@ def get_last_5_entries_sales():
     # print(column)
 
     columns = []
-    for int in range(1,7):
+    for int in range(1, 7):
         column = sales.col_values(int)
         columns.append(column[-5:])
     
     return columns
+
 
 def calculate_stock_data(data):
     """
